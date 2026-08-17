@@ -2,7 +2,7 @@
   "updated_at": "2026-08-17T18:30:00-03:00",
   "app_name": "TripPocket",
   "reference_app": "TravelSpend (tech.jonas.travelbudget)",
-  "summary": "Lote A concluído — TripPocket venceu a comparação cega. Iniciando Lote B (Adicionar/Editar Despesa).",
+  "summary": "Lote B construído (categoria, calculadora, opções avançadas, distribuir por dias, método de pagamento) — verificado interativamente, aguardando crítico independente.",
   "batches": [
     {
       "id": "A",
