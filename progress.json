@@ -1,8 +1,8 @@
 {
-  "updated_at": "2026-08-17T18:00:00-03:00",
+  "updated_at": "2026-08-17T18:30:00-03:00",
   "app_name": "TripPocket",
   "reference_app": "TravelSpend (tech.jonas.travelbudget)",
-  "summary": "Kickoff: projeto Expo criado, fundação em andamento (Lote A).",
+  "summary": "Lote A em construção: builder implementando shell de navegação, lista de viagens, wizard de criação e tela Entradas (vazia/com dados).",
   "batches": [
     {
       "id": "A",
