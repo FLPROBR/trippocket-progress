@@ -2,7 +2,7 @@
   "updated_at": "2026-08-17T18:30:00-03:00",
   "app_name": "TripPocket",
   "reference_app": "TravelSpend (tech.jonas.travelbudget)",
-  "summary": "Lote A em construção: builder implementando shell de navegação, lista de viagens, wizard de criação e tela Entradas (vazia/com dados).",
+  "summary": "Lote A construído (shell, lista de viagens, wizard, Entradas vazia/com dados) — crítico avaliando ao vivo contra o TravelSpend real via ADB.",
   "batches": [
     {
       "id": "A",
