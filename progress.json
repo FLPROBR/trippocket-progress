@@ -2,19 +2,25 @@
   "updated_at": "2026-08-17T18:30:00-03:00",
   "app_name": "TripPocket",
   "reference_app": "TravelSpend (tech.jonas.travelbudget)",
-  "summary": "Lote A: crítico encontrou crash real na tela Entradas + bugs de rótulo/dados fictícios; correções aplicadas, aguardando reverificação do crítico.",
+  "summary": "Lote A concluído — TripPocket venceu a comparação cega. Iniciando Lote B (Adicionar/Editar Despesa).",
   "batches": [
     {
       "id": "A",
       "title": "Fundação + Navegação + Viagens",
       "units": ["U01", "U02", "U03", "U04", "U05"],
-      "status": "in-progress",
+      "status": "done",
       "rounds": [
         {
           "round": 1,
           "date": "2026-08-17",
           "verdict": "travelspend-wins",
-          "gap": "Tela Entradas quebrava com erro de React (\"Rendered more hooks than during the previous render\") em todo carregamento a frio — um useMemo rodava depois de um return condicional, violando as Regras dos Hooks. Corrigido; reverificação em andamento."
+          "gap": "Tela Entradas quebrava com erro de React (\"Rendered more hooks than during the previous render\") em todo carregamento a frio — um useMemo rodava depois de um return condicional, violando as Regras dos Hooks."
+        },
+        {
+          "round": 2,
+          "date": "2026-08-17",
+          "verdict": "trippocket-wins",
+          "gap": "Nenhum gap desqualificante. Pendência cosmética de baixa prioridade: a barra de progresso de orçamento estourado apareceu com tom oliva/esmaecido em vez de vermelho vivo em uma captura anterior à correção — cor no código (colors.danger) está correta; será reconfirmado quando o fluxo de despesas (Lote B) permitir gerar um estado real de orçamento estourado."
         }
       ]
     },
@@ -22,7 +28,7 @@
       "id": "B",
       "title": "Despesas (Adicionar / Detalhe / Editar)",
       "units": ["U16", "U06"],
-      "status": "pending",
+      "status": "in-progress",
       "rounds": []
     },
     {
