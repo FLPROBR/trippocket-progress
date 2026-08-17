@@ -1,0 +1,50 @@
+{
+  "updated_at": "2026-08-17T18:00:00-03:00",
+  "app_name": "TripPocket",
+  "reference_app": "TravelSpend (tech.jonas.travelbudget)",
+  "summary": "Kickoff: projeto Expo criado, fundação em andamento (Lote A).",
+  "batches": [
+    {
+      "id": "A",
+      "title": "Fundação + Navegação + Viagens",
+      "units": ["U01", "U02", "U03", "U04", "U05"],
+      "status": "in-progress",
+      "rounds": []
+    },
+    {
+      "id": "B",
+      "title": "Despesas (Adicionar / Detalhe / Editar)",
+      "units": ["U16", "U06"],
+      "status": "pending",
+      "rounds": []
+    },
+    {
+      "id": "C",
+      "title": "Abas secundárias (Estatísticas, Mapa, Pesquisar)",
+      "units": ["U07", "U08", "U09"],
+      "status": "pending",
+      "rounds": []
+    },
+    {
+      "id": "D",
+      "title": "Gestão da viagem (Editar, CSV, Compartilhar)",
+      "units": ["U10", "U11", "U12"],
+      "status": "pending",
+      "rounds": []
+    },
+    {
+      "id": "E",
+      "title": "Colaboração e ajustes (Amigos, Visualização, Configurar)",
+      "units": ["U13", "U14", "U15"],
+      "status": "pending",
+      "rounds": []
+    },
+    {
+      "id": "F",
+      "title": "Câmbio multi-moeda e Offline/Limites",
+      "units": ["U17", "U18"],
+      "status": "pending",
+      "rounds": []
+    }
+  ]
+}

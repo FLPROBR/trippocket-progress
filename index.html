@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>TripPocket — Progresso da reconstrução</title>
+<style>
+  :root {
+    --bg: #0f1115;
+    --panel: #171a21;
+    --panel-2: #1e222b;
+    --border: #2a2f3a;
+    --text: #e8eaed;
+    --muted: #9aa3b2;
+    --accent: #ff4d6d;
+    --accent-soft: rgba(255, 77, 109, 0.15);
+    --good: #3ddc84;
+    --bad: #ff5c5c;
+    --warn: #ffb84d;
+  }
+  * { box-sizing: border-box; }
+  body {
+    margin: 0;
+    font-family: -apple-system, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    background: var(--bg);
+    color: var(--text);
+    line-height: 1.5;
+  }
+  header {
+    padding: 32px 24px 16px;
+    max-width: 960px;
+    margin: 0 auto;
+  }
+  header h1 { margin: 0 0 4px; font-size: 28px; }
+  header .sub { color: var(--muted); font-size: 14px; }
+  header .updated { color: var(--muted); font-size: 12px; margin-top: 8px; }
+  main { max-width: 960px; margin: 0 auto; padding: 8px 24px 64px; }
+  .batch {
+    background: var(--panel);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    margin-bottom: 16px;
+    overflow: hidden;
+  }
+  .batch-head {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 16px 20px;
+    gap: 12px;
+    flex-wrap: wrap;
+  }
+  .batch-title { font-size: 16px; font-weight: 600; }
+  .batch-units { color: var(--muted); font-size: 12px; margin-top: 2px; }
+  .status {
+    font-size: 12px;
+    font-weight: 600;
+    padding: 4px 10px;
+    border-radius: 999px;
+    white-space: nowrap;
+  }
+  .status.pending { background: #2a2f3a; color: var(--muted); }
+  .status.in-progress { background: rgba(255, 184, 77, 0.15); color: var(--warn); }
+  .status.done { background: rgba(61, 220, 132, 0.15); color: var(--good); }
+  .rounds { border-top: 1px solid var(--border); }
+  .round {
+    padding: 14px 20px;
+    border-bottom: 1px solid var(--border);
+    display: grid;
+    grid-template-columns: auto 1fr;
+    gap: 4px 12px;
+    font-size: 13px;
+  }
+  .round:last-child { border-bottom: none; }
+  .round .rlabel { color: var(--muted); }
+  .verdict {
+    font-weight: 600;
+    padding: 1px 8px;
+    border-radius: 6px;
+    font-size: 12px;
+    display: inline-block;
+  }
+  .verdict.trippocket-wins { background: rgba(61, 220, 132, 0.15); color: var(--good); }
+  .verdict.travelspend-wins { background: rgba(255, 92, 92, 0.15); color: var(--bad); }
+  .verdict.tie { background: rgba(255, 184, 77, 0.15); color: var(--warn); }
+  .shots { display: flex; gap: 8px; margin-top: 6px; grid-column: 1 / -1; flex-wrap: wrap; }
+  .shots img { max-height: 220px; border-radius: 8px; border: 1px solid var(--border); }
+  .empty-rounds { padding: 14px 20px; color: var(--muted); font-size: 13px; font-style: italic; }
+  footer { max-width: 960px; margin: 0 auto; padding: 0 24px 48px; color: var(--muted); font-size: 12px; }
+  a { color: var(--accent); }
+</style>
+</head>
+<body>
+<header>
+  <h1>🧳 TripPocket — reconstrução do TravelSpend</h1>
+  <div class="sub">Progresso ao vivo do rebuild guiado por <code>requisitos/MASTER.md</code>, validado por comparação cega contra o app real (<code>tech.jonas.travelbudget</code>) rodando em BlueStacks.</div>
+  <div class="updated" id="updated">carregando...</div>
+</header>
+<main id="main">
+  <p style="color: var(--muted)">carregando progress.json...</p>
+</main>
+<footer>
+  Gerado a partir de <code>docs/progress.json</code>. Ver <a href="https://github.com/FLPROBR/TripPocket">repositório</a>.
+</footer>
+<script>
+async function load() {
+  const res = await fetch('progress.json?_=' + Date.now());
+  const data = await res.json();
+  document.getElementById('updated').textContent =
+    'Atualizado em ' + new Date(data.updated_at).toLocaleString('pt-BR') +
+    ' — ' + data.summary;
+
+  const main = document.getElementById('main');
+  main.innerHTML = '';
+  for (const b of data.batches) {
+    const div = document.createElement('div');
+    div.className = 'batch';
+
+    const head = document.createElement('div');
+    head.className = 'batch-head';
+    head.innerHTML = `
+      <div>
+        <div class="batch-title">Lote ${b.id} — ${escapeHtml(b.title)}</div>
+        <div class="batch-units">${b.units.join(', ')}</div>
+      </div>
+      <div class="status ${b.status}">${statusLabel(b.status)}</div>
+    `;
+    div.appendChild(head);
+
+    const roundsWrap = document.createElement('div');
+    roundsWrap.className = 'rounds';
+    if (!b.rounds || b.rounds.length === 0) {
+      const empty = document.createElement('div');
+      empty.className = 'empty-rounds';
+      empty.textContent = 'Nenhuma rodada de crítica ainda.';
+      roundsWrap.appendChild(empty);
+    } else {
+      for (const r of b.rounds) {
+        const rd = document.createElement('div');
+        rd.className = 'round';
+        rd.innerHTML = `
+          <div class="rlabel">Rodada ${r.round}</div>
+          <div><span class="verdict ${r.verdict}">${verdictLabel(r.verdict)}</span> — ${escapeHtml(r.date || '')}</div>
+          <div class="rlabel">Maior gap</div>
+          <div>${escapeHtml(r.gap || '—')}</div>
+          ${(r.our_shot || r.their_shot) ? `<div class="rlabel">Evidência</div><div class="shots">
+            ${r.our_shot ? `<img src="${r.our_shot}" alt="TripPocket">` : ''}
+            ${r.their_shot ? `<img src="${r.their_shot}" alt="TravelSpend">` : ''}
+          </div>` : ''}
+        `;
+        roundsWrap.appendChild(rd);
+      }
+    }
+    div.appendChild(roundsWrap);
+    main.appendChild(div);
+  }
+}
+function statusLabel(s) {
+  return { pending: 'Pendente', 'in-progress': 'Em andamento', done: 'Concluído' }[s] || s;
+}
+function verdictLabel(v) {
+  return { 'trippocket-wins': 'TripPocket venceu', 'travelspend-wins': 'TravelSpend venceu', tie: 'Empate' }[v] || v;
+}
+function escapeHtml(s) {
+  return String(s).replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+}
+load().catch(err => {
+  document.getElementById('main').innerHTML = '<p style="color:#ff5c5c">Erro ao carregar progress.json: ' + err + '</p>';
+});
+</script>
+</body>
+</html>
