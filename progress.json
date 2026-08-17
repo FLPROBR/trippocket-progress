@@ -2,14 +2,21 @@
   "updated_at": "2026-08-17T18:30:00-03:00",
   "app_name": "TripPocket",
   "reference_app": "TravelSpend (tech.jonas.travelbudget)",
-  "summary": "Lote A construído (shell, lista de viagens, wizard, Entradas vazia/com dados) — crítico avaliando ao vivo contra o TravelSpend real via ADB.",
+  "summary": "Lote A: crítico encontrou crash real na tela Entradas + bugs de rótulo/dados fictícios; correções aplicadas, aguardando reverificação do crítico.",
   "batches": [
     {
       "id": "A",
       "title": "Fundação + Navegação + Viagens",
       "units": ["U01", "U02", "U03", "U04", "U05"],
       "status": "in-progress",
-      "rounds": []
+      "rounds": [
+        {
+          "round": 1,
+          "date": "2026-08-17",
+          "verdict": "travelspend-wins",
+          "gap": "Tela Entradas quebrava com erro de React (\"Rendered more hooks than during the previous render\") em todo carregamento a frio — um useMemo rodava depois de um return condicional, violando as Regras dos Hooks. Corrigido; reverificação em andamento."
+        }
+      ]
     },
     {
       "id": "B",
