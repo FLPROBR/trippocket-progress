@@ -2,7 +2,7 @@
   "updated_at": "2026-08-17T18:30:00-03:00",
   "app_name": "TripPocket",
   "reference_app": "TravelSpend (tech.jonas.travelbudget)",
-  "summary": "Lote B construído (categoria, calculadora, opções avançadas, distribuir por dias, método de pagamento) — verificado interativamente, aguardando crítico independente.",
+  "summary": "Lote B: crítico achou bug real em \"Distribuir por dias\" (salvava despesa errada silenciosamente); corrigido e verificado, aguardando reverificação do crítico.",
   "batches": [
     {
       "id": "A",
@@ -29,7 +29,14 @@
       "title": "Despesas (Adicionar / Detalhe / Editar)",
       "units": ["U16", "U06"],
       "status": "in-progress",
-      "rounds": []
+      "rounds": [
+        {
+          "round": 1,
+          "date": "2026-08-17",
+          "verdict": "travelspend-wins",
+          "gap": "\"Distribuir por dias\" (RF42/RN27) tinha a máquina de estados de toques quebrada: a âncora do intervalo já nascia em \"hoje\", então o 1º toque do usuário já fechava um intervalo de 2 pontos e o 2º toque era tratado como reinício. Resultado: salvava silenciosamente UMA despesa não dividida na data errada, sem nenhuma linha de grupo e sem aviso — bug de integridade de dados, não cosmético. Corrigido; reverificação em andamento."
+        }
+      ]
     },
     {
       "id": "C",
