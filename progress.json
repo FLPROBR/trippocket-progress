@@ -2,7 +2,7 @@
   "updated_at": "2026-08-17T18:30:00-03:00",
   "app_name": "TripPocket",
   "reference_app": "TravelSpend (tech.jonas.travelbudget)",
-  "summary": "Lote C construído (Estatísticas com fórmulas reais, Mapa com clustering, Pesquisar com filtro por categoria) — verificado interativamente, aguardando crítico independente.",
+  "summary": "Lote C concluído — TripPocket venceu de forma clara. Iniciando Lote D (Editar Viagem, CSV, Compartilhar).",
   "batches": [
     {
       "id": "A",
@@ -48,14 +48,21 @@
       "id": "C",
       "title": "Abas secundárias (Estatísticas, Mapa, Pesquisar)",
       "units": ["U07", "U08", "U09"],
-      "status": "in-progress",
-      "rounds": []
+      "status": "done",
+      "rounds": [
+        {
+          "round": 1,
+          "date": "2026-08-17",
+          "verdict": "trippocket-wins",
+          "gap": "Vitória clara, não foi um empate técnico. Único achado: os sheets \"Informação Rápida\" (4 cards de métricas + FAQ geral) não tinham um \"X\" explícito para fechar, só arrastar/tocar fora — TravelSpend mostra um X em todos. Corrigido no mesmo dia (SheetHeader compartilhado com ícone de fechar)."
+        }
+      ]
     },
     {
       "id": "D",
       "title": "Gestão da viagem (Editar, CSV, Compartilhar)",
       "units": ["U10", "U11", "U12"],
-      "status": "pending",
+      "status": "in-progress",
       "rounds": []
     },
     {
