@@ -2,7 +2,7 @@
   "updated_at": "2026-08-17T18:30:00-03:00",
   "app_name": "TripPocket",
   "reference_app": "TravelSpend (tech.jonas.travelbudget)",
-  "summary": "Lote F construído (câmbio multi-moeda, com 2 bugs reais do original corrigidos) — verificado interativamente, aguardando crítico independente. Último lote planejado.",
+  "summary": "Todos os 6 lotes concluídos — TripPocket venceu a comparação cega em todas as 18 unidades do MASTER.md (146 requisitos). Ver ROADMAP.md para o resumo e próximos passos (build nativo via EAS, publicação nas lojas).",
   "batches": [
     {
       "id": "A",
@@ -90,8 +90,15 @@
       "id": "F",
       "title": "Câmbio multi-moeda e Offline/Limites",
       "units": ["U17", "U18"],
-      "status": "in-progress",
-      "rounds": []
+      "status": "done",
+      "rounds": [
+        {
+          "round": 1,
+          "date": "2026-08-18",
+          "verdict": "trippocket-wins",
+          "gap": "Vitória clara, nenhum gap desqualificante — possivelmente a última rodada do projeto. Crítico reproduziu ao vivo os dois bugs reais do TravelSpend (RN49: '122,00' digitado em BRL vira USD 122,00 ao trocar de moeda, sem conversão nem aviso; RN50: salvar uma 2ª taxa customizada para a mesma moeda duplica em vez de substituir) e confirmou que o TripPocket corrige ambos com prova numérica direta, além de RN46 (taxa congelada por despesa) e RN47 (taxa customizada global com recálculo correto entre bases de moeda diferentes)."
+        }
+      ]
     }
   ]
 }
