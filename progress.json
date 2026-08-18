@@ -2,7 +2,7 @@
   "updated_at": "2026-08-17T18:30:00-03:00",
   "app_name": "TripPocket",
   "reference_app": "TravelSpend (tech.jonas.travelbudget)",
-  "summary": "Lote C concluído — TripPocket venceu de forma clara. Iniciando Lote D (Editar Viagem, CSV, Compartilhar).",
+  "summary": "Lote D construído (Editar Viagem, Exportação CSV real, Compartilhar) — verificado interativamente, aguardando crítico independente.",
   "batches": [
     {
       "id": "A",
