@@ -2,7 +2,7 @@
   "updated_at": "2026-08-17T18:30:00-03:00",
   "app_name": "TripPocket",
   "reference_app": "TravelSpend (tech.jonas.travelbudget)",
-  "summary": "Todos os 6 lotes concluídos — TripPocket venceu a comparação cega em todas as 18 unidades do MASTER.md (146 requisitos). Ver ROADMAP.md para o resumo e próximos passos (build nativo via EAS, publicação nas lojas).",
+  "summary": "Cobertura completa do MASTER.md (18 unidades, 146 requisitos, TripPocket venceu todas) + preparação para as lojas: ícone/splash, config EAS Build, modo escuro real e upload de foto real, todos concluídos. Próximo passo: contas de desenvolvedor (Expo/EAS, Apple, Google Play) e build real.",
   "batches": [
     {
       "id": "A",
