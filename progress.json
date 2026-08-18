@@ -2,7 +2,7 @@
   "updated_at": "2026-08-17T18:30:00-03:00",
   "app_name": "TripPocket",
   "reference_app": "TravelSpend (tech.jonas.travelbudget)",
-  "summary": "Lote D construído (Editar Viagem, Exportação CSV real, Compartilhar) — verificado interativamente, aguardando crítico independente.",
+  "summary": "Lote D concluído — TripPocket venceu de forma clara. Iniciando Lote E (Amigos/Divisão, Ajustar Visualização, Configurar).",
   "batches": [
     {
       "id": "A",
@@ -62,14 +62,21 @@
       "id": "D",
       "title": "Gestão da viagem (Editar, CSV, Compartilhar)",
       "units": ["U10", "U11", "U12"],
-      "status": "in-progress",
-      "rounds": []
+      "status": "done",
+      "rounds": [
+        {
+          "round": 1,
+          "date": "2026-08-18",
+          "verdict": "trippocket-wins",
+          "gap": "Vitória clara. Único achado cosmético, não contabilizado como falha: o cartão de Compartilhar usa fundo preto sólido em vez da foto de capa da viagem — consequência direta de \"Alterar Foto\" ser um stub aceito nesta rodada, não um bug novo. Revisitar quando upload de foto real for implementado. Exclusão de viagem com confirmação e exportação CSV real (com download e conteúdo inspecionado) funcionam corretamente — vão além do que o app original chegou a demonstrar nas evidências."
+        }
+      ]
     },
     {
       "id": "E",
       "title": "Colaboração e ajustes (Amigos, Visualização, Configurar)",
       "units": ["U13", "U14", "U15"],
-      "status": "pending",
+      "status": "in-progress",
       "rounds": []
     },
     {
