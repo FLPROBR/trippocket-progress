@@ -2,7 +2,7 @@
   "updated_at": "2026-08-17T18:30:00-03:00",
   "app_name": "TripPocket",
   "reference_app": "TravelSpend (tech.jonas.travelbudget)",
-  "summary": "Lote E concluído — TripPocket venceu de forma clara (e é mais robusto que o original na divisão desigual). Iniciando Lote F (Câmbio multi-moeda, Offline/Limites).",
+  "summary": "Lote F construído (câmbio multi-moeda, com 2 bugs reais do original corrigidos) — verificado interativamente, aguardando crítico independente. Último lote planejado.",
   "batches": [
     {
       "id": "A",
