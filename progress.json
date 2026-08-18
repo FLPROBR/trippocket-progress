@@ -2,7 +2,7 @@
   "updated_at": "2026-08-17T18:30:00-03:00",
   "app_name": "TripPocket",
   "reference_app": "TravelSpend (tech.jonas.travelbudget)",
-  "summary": "Lote B concluído — TripPocket venceu a comparação cega. Iniciando Lote C (Estatísticas, Mapa, Pesquisar).",
+  "summary": "Lote C construído (Estatísticas com fórmulas reais, Mapa com clustering, Pesquisar com filtro por categoria) — verificado interativamente, aguardando crítico independente.",
   "batches": [
     {
       "id": "A",
